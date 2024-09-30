@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <!-- Define the logs directory -->
-    <property name="LOGS_HOME" value="logs/" />
+    <property name="LOGS_HOME" value="logs" />
 
     <!-- Console appender -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -12,7 +12,7 @@
 
     <!-- File appender for server logs with rolling policy -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOGS_HOME}server.log</file>
+        <file>${LOGS_HOME}/server.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M:%L - %msg%n</pattern>
         </encoder>
@@ -28,7 +28,7 @@
 
     <!-- File appender for access logs with rolling policy -->
     <appender name="FILE-ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOGS_HOME}access.log</file>
+        <file>${LOGS_HOME}/access.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS}, %msg%n</pattern>
         </encoder>
