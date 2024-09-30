@@ -1,0 +1,15 @@
+30-09-2024 13:07:34.595 [main] INFO  c.c.s.SpringTutorialApplication.logStarting:50 - Starting SpringTutorialApplication using Java 22.0.2 with PID 17280 (D:\springtutorial\spring-logging\spring-logback-accesslog-filter-tutorial\target\classes started by user in D:\springtutorial\spring-logging\spring-logback-accesslog-filter-tutorial)
+30-09-2024 13:07:34.597 [main] INFO  c.c.s.SpringTutorialApplication.logStartupProfileInfo:654 - No active profile set, falling back to 1 default profile: "default"
+30-09-2024 13:07:35.724 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize:111 - Tomcat initialized with port 8080 (http)
+30-09-2024 13:07:35.737 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log:173 - Initializing ProtocolHandler ["http-nio-8080"]
+30-09-2024 13:07:35.745 [main] INFO  o.a.catalina.core.StandardService.log:173 - Starting service [Tomcat]
+30-09-2024 13:07:35.746 [main] INFO  o.a.catalina.core.StandardEngine.log:173 - Starting Servlet engine: [Apache Tomcat/10.1.30]
+30-09-2024 13:07:35.799 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log:173 - Initializing Spring embedded WebApplicationContext
+30-09-2024 13:07:35.800 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext:296 - Root WebApplicationContext: initialization completed in 1153 ms
+30-09-2024 13:07:36.143 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log:173 - Starting ProtocolHandler ["http-nio-8080"]
+30-09-2024 13:07:36.185 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start:243 - Tomcat started on port 8080 (http) with context path '/'
+30-09-2024 13:07:36.197 [main] INFO  c.c.s.SpringTutorialApplication.logStarted:56 - Started SpringTutorialApplication in 2.36 seconds (process running for 2.781)
+30-09-2024 13:07:46.249 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+30-09-2024 13:07:46.250 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean:532 - Initializing Servlet 'dispatcherServlet'
+30-09-2024 13:07:46.251 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean:554 - Completed initialization in 1 ms
+30-09-2024 13:07:46.289 [http-nio-8080-exec-1] INFO  c.c.s.controller.HelloController.hello:16 - logging a log from HelloController

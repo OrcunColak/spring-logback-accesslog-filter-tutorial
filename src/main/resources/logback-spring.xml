@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Define the logs directory -->
+    <property name="LOGS_HOME" value="logs/" />
+
+    <!-- Console appender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M:%L - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <!-- File appender for server logs with rolling policy -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS_HOME}server.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M:%L - %msg%n</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- Rollover daily and if the log file exceeds 10MB -->
+            <fileNamePattern>${LOGS_HOME}server.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>30</maxHistory> <!-- Keep logs for 30 days -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Limit total log size to 1GB -->
+        </rollingPolicy>
+    </appender>
+
+    <!-- File appender for access logs with rolling policy -->
+    <appender name="FILE-ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS_HOME}access.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS}, %msg%n</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- Rollover daily and if the log file exceeds 10MB -->
+            <fileNamePattern>${LOGS_HOME}access.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>30</maxHistory> <!-- Keep logs for 30 days -->
+            <totalSizeCap>1GB</totalSizeCap> <!-- Limit total log size to 1GB -->
+        </rollingPolicy>
+    </appender>
+
+    <!-- Logger for the access logs -->
+    <logger name="access-log" level="info" additivity="false">
+        <appender-ref ref="FILE-ACCESS" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <!-- Root logger, capturing error level logs -->
+    <root level="error">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
